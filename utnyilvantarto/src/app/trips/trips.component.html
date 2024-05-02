@@ -1,0 +1,79 @@
+<div class="m-5">
+
+
+    <form #addTripForm="ngForm" class="trip-form">
+
+        <h3 class="form-title">Record a trip</h3>
+        <hr class="form-divider">
+        <fieldset>
+            <div class="form-group">
+                <label class="form-label">Auto:</label>
+                <select class="form-control" id="carSelect" name="carSelect" [(ngModel)]="defaultCar" required>
+                    <option *ngFor="let car of carsData">{{ car.car_type }}</option>
+                </select>
+            </div>
+            <hr class="form-divider">
+            <div class="form-group">
+                <label class="form-label">Sofőr</label>
+                <select class="form-control" id="driverSelect" name="driverSelect" [(ngModel)]="defaultDriver" required>
+                    <option *ngFor="let driver of availableDrivers">{{ driver.name }}</option>
+                </select>
+            </div>
+            <hr class="form-divider">
+            <div class="form-group">
+                <label class="form-label">Dátum: (1999-01-01) </label>
+                <input type="text" class="form-control" name="startDate" ngModel pattern="^[0-9]{4}-[0-9]{2}-[0-9]{2}$" required>
+                
+            </div>
+            <hr class="form-divider">
+            <div class="form-group">
+                <label class="form-label">Utazás jellege:</label>
+                <select class="form-control" name="type" [(ngModel)]="defaultType" required>
+                    <option>Magán</option>
+                    <option>Céges</option>
+                </select>
+            </div>
+            <hr class="form-divider">
+            <div class="form-group">
+                <label class="form-label">Indulás helye:</label>
+                <input type="text" class="form-control" name="startPlace" ngModel pattern="^[a-zA-ZáÁéÉíÍóÓöÖőŐúÚüÜűŰ]{3,}$" required>
+               
+            </div>
+            <hr class="form-divider">
+            <div class="form-group">
+                <label class="form-label">Érkezés helye:</label>
+                <input type="text" class="form-control" name="endPlace" ngModel pattern="^[a-zA-ZáÁéÉíÍóÓöÖőŐúÚüÜűŰ]{3,}$" required>
+                
+            </div>
+            <hr class="form-divider">
+            <div class="form-group">
+                <label class="form-label">Megtett távolság:</label>
+                <input type="text" class="form-control" name="distance" ngModel pattern="^[0-9]{1,}$" required>
+            </div>
+            <hr class="form-divider">
+            <div class="form-group">
+                <label class="form-label">Új kilóméteróra-állás</label>
+                <input type="text" class="form-control" name="newMileage" ngModel pattern="^[0-9]{1,}$" required>
+                
+            </div>
+            <hr class="form-divider">
+            <div class="form-group">
+                <label class="form-label">Visszaút automatikus regisztrálása:</label>
+                <select class="form-control" name="return" [(ngModel)]="defaultReturn" required>
+                    <option>Igen</option>
+                    <option>Nem</option>
+                </select>
+            </div>
+            <hr class="form-divider">
+            <!-- 
+                <button type="submit" class="btn btn-primary mb-5"  >Mentés</button>
+            -->
+            
+            <button type="submit" class="btn btn-primary mb-5"  (click)="saveTrip(addTripForm)">Mentés</button>
+        </fieldset>
+    </form>
+
+    
+
+
+</div>

@@ -1,0 +1,27 @@
+.custom-form {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+.custom-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.custom-form label {
+    font-weight: 500;
+}
+
+.custom-form input[type="text"],
+.custom-form select {
+    width: 100%;
+}
+
+.custom-form .text-danger {
+    font-size: 0.8rem;
+}
+
+.custom-form button {
+    margin-top: 1rem;
+}

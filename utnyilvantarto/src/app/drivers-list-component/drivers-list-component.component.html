@@ -1,0 +1,32 @@
+<div class="list-group">
+    <div *ngFor="let driver of drivers" class="col">
+      
+        <div class="d-flex w-100 justify-content-between" [ngClass]="{'text-danger': isLicenseExpired(driver)}">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ driver.name}}</h5> 
+                    <small>
+                    <button class="btn btn-primary" (click)="changeDriver(driver)">
+                     Modify
+                    </button>
+         
+                    </small>
+            </div>
+            
+        </div>
+        
+        <div>
+            <p class="mb-1">
+                Születési idő: {{ driver.birthDate }} <span class="separator">|</span>
+                Lakcím: {{ driver.address }} <span class="separator">|</span>
+                Jogosítvány száma: {{ driver.licenseNumber }} <span class="separator">|</span>
+                Jogosítvány lejárati dátuma: {{ driver.licenseExpirationDate }}
+            </p>
+
+           
+            <hr>
+            
+      </div>
+      
+    
+    
+</div>

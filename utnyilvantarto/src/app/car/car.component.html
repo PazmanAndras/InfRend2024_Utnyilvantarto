@@ -1,0 +1,32 @@
+
+
+<div class="list-group">
+
+    <a *ngFor="let car of cars; let i = index" class="list-group-item list-group-item-action" [ngClass]="{'list-group-item-secondary': i % 2 !== 0}"> <!-- Midnen 2 . sor szurke-->
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Rendszám: {{ car.lp_number }}</h5>
+        
+        <small><button type="button" class="btn btn-primary btn-sm mr-2" >Update</button>
+            <span class="separator">
+                <button type="button" class="btn btn-danger btn-sm" >Delete</button>
+            </span>
+          
+
+         </small>
+        
+      </div>
+      <p class="mb-1">
+        Üzemanyag: {{ car.fuel }} <span class="separator">|</span>
+        Fogyasztás: {{ car.consumption }} liter/100km <span class="separator">|</span>
+        Tipus: {{ car.car_type }} <span class="separator">|</span>
+        Kezdő kilóméteróra-állás: {{ car.start_km }} km
+
+
+      </p>
+      <div>
+        <hr>
+       
+      </div>
+    </a>
+  </div>
+

@@ -1,0 +1,39 @@
+/* Custom styling for form labels */
+label {
+    font-weight: bold;
+  }
+  
+  /* Custom styling for form fields */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Custom styling for buttons */
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Custom styling for primary button margins */
+  .btn-primary.m-1 {
+    margin-right: 10px;
+  }
+  
+  /* Custom styling for select dropdowns */
+  .form-control {
+    width: 60%;
+    padding: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+
+  

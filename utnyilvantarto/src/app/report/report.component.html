@@ -1,0 +1,97 @@
+<h3>Reports</h3>
+<hr>
+
+<div class="m-5">
+
+    <form #reportForm="ngForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="date">Év és hónap:</label>
+                    <select class="form-control" id="date" name="date" [(ngModel)]="defDate" required>
+                        <option *ngFor="let date of dates" [value]="date.dates">{{ date.dates }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="plateSelect">Rendszáma:</label>
+                    <select class="form-control" id="plateSelect" name="plateSelect" [(ngModel)]="defPl_number" required>
+                        <option *ngFor="let car of carsData">{{ car.lp_number }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-primary btn-block mb-3" [disabled]="isSearch" (click)="search(reportForm)">Keresés</button>
+            </div>
+            <div class="col-md-6">
+                <button class="btn btn-primary btn-block" *ngIf="isSearch" (click)="newSearch()">Új keresés</button>
+            </div>
+        </div>
+    </form>
+
+    <div *ngIf="reportsSum.length > 0" class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card bg-light m-2">
+                    <div class="card-header text-center">
+                        <h5 class="card-title">Kilóméter óra állás</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> {{ MinMax[0].minKM }}  (kezdő km )- {{ MinMax[MinMax.length-1].maxKM }}  (befejező km )</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card bg-light m-2">
+                    <div class="card-header text-center">
+                        <h5 class="card-title">Megtett utak:</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" *ngFor="let places of CollectPlaces">{{ places.startPlace }} - {{ places.endPlace }}</li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-light m-2">
+                    <div class="card-header text-center">
+                        <h5 class="card-title">Magán:</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Megtett távolság: {{ reportsSum[0].distancePrivate }} km</li>
+                            <li class="list-group-item">Üzemanyag fogyasztás: {{ reportsSum[0].consumptionPrivate }} Ft</li>
+                            <li class="list-group-item">Általány költség: {{ reportsSum[0].flatRatePrivate }} Ft</li>
+                            <li class="list-group-item">Összes költség: {{ reportsSum[0].allCostPrivate }} Ft</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card bg-light m-2">
+                    <div class="card-header text-center">
+                        <h5 class="card-title">Céges:</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Megtett távolság: {{ reportsSum[1].distanceCompany }} km</li>
+                            <li class="list-group-item">Üzemanyag fogyasztás: {{ reportsSum[1].consumptionCompany }} Ft</li>
+                            <li class="list-group-item">Általány költség: {{ reportsSum[1].flatRateCompany }} Ft</li>
+                            <li class="list-group-item">Összes költség: {{ reportsSum[1].allCostCompany }} Ft</li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+
+    
+</div>
